@@ -1,0 +1,20 @@
+.App {
+  width: 100%;
+  display: flex;
+  /* border: 1px solid red; */
+}
+
+.App aside {
+  width: 10%;
+  height: 100%;
+  display: fixed;
+  top: 0;
+  left: 0;
+  /* border: 1px solid lime; */
+}
+
+.App main {
+  width: 90%;
+  height: 100%;
+    /* border: 1px solid lime; */
+}

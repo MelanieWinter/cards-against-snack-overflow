@@ -1,0 +1,27 @@
+.CardFront {
+    width: 10rem;
+    height: 15rem;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+}
+
+.CardFront:before {
+    width: 100%;
+    height: 100%; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: radial-gradient(
+        35rem circle at var(--mouse-x) var(--mouse-y),
+        rgba(255, 255, 255, 0.06),
+        transparent 40%
+    );
+    border-radius: inherit;
+    content: "";
+    z-index: 2;
+}
