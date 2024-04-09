@@ -10,6 +10,11 @@ export default function Navigation() {
                         Home
                     </Link>
                 </li>
+                <li>
+                    <Link to={'/game-lobby'} className='nav-link'>
+                        Lobby
+                    </Link>
+                </li>
                 <li>Rules</li>
             </ul>
         </nav>

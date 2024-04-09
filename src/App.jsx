@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Homepage from './pages/Homepage/Homepage';
 import GameRoom from './pages/GameRoom/GameRoom';
+import GameLobby from './pages/GameLobby/GameLobby';
 import Navigation from './components/Navigation/Navigation';
 import './App.css'
 
@@ -13,6 +14,10 @@ function App() {
 
       <main>
         <Routes>
+          <Route 
+            path='/game-lobby'
+            element={<GameLobby />}
+          />
           <Route 
             path='/game-room'
             element={<GameRoom />}
