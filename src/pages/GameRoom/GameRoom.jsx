@@ -1,4 +1,4 @@
-import CardFront from '../../components/CardFront/CardFront'
+import Card from '../../components/Card/Card'
 import './GameRoom.css'
 
 export default function GameRoom() {
@@ -7,12 +7,12 @@ export default function GameRoom() {
         <section className="GameRoom">
             <h1>Are you ready for this?</h1>
             <div className='card-hand'>
-                <CardFront/>
-                <CardFront />
-                <CardFront />
-                <CardFront />
-                <CardFront />
-                <CardFront />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
             </div>
         </section>
     )

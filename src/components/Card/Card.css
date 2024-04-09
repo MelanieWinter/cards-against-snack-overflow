@@ -1,4 +1,4 @@
-.CardFront {
+.Card {
     width: 10rem;
     height: 15rem;
     position: relative;
@@ -10,8 +10,8 @@
     cursor: pointer;
 }
 
-.CardFront::before,
-.CardFront .card-border {
+.Card::before,
+.Card .card-border {
     width: 100%;
     height: 100%; 
     position: absolute;
@@ -25,12 +25,12 @@
     /* border: 1px solid red; */
 }
 
-.CardFront:hover::before,
-.CardFront:hover .card-border {
+.Card:hover::before,
+.Card:hover .card-border {
     opacity: 1;
 }
 
-.CardFront::before {
+.Card::before {
     background: radial-gradient(
         34rem circle at var(--mouse-x) var(--mouse-y),
         rgba(255, 255, 255, 0.06),
@@ -39,7 +39,7 @@
     z-index: 3;
 }
 
-.CardFront .card-border {
+.Card .card-border {
     background: radial-gradient(
         17rem circle at car(--mouse-x) var(--mouse-y),
         rgba(255, 255, 255, 0.03),
@@ -49,7 +49,7 @@
     /* border: 1px solid red; */
 }
 
-.CardFront .card-content {
+.Card .card-content {
     width: calc(100% - 2px);  
     height: calc(100% - 2px);
     position: relative;

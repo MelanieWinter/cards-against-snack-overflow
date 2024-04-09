@@ -1,5 +1,5 @@
-import './CardFront.css'
-export default function CardFront() {
+import './Card.css'
+export default function Card() {
 
     const handleOnMouseMove = e => {
         const { currentTarget: target } = e
@@ -19,7 +19,7 @@ export default function CardFront() {
     }
 
     return (
-        <div className='CardFront'>
+        <div className='Card'>
             <div className='card-border'></div>
             <div className='card-content'></div>
             {/* <span>Card Front</span> */}
