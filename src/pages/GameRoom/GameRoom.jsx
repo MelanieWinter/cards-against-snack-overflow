@@ -8,6 +8,7 @@ export default function GameRoom() {
     const [startingHandDealt, setStartingHandDealt] = useState(false)
     const [showResults, setShowResults] = useState(false)
     const [chosenWhiteCard, setChosenWhiteCard] = useState()
+    const [currentBlackCard, setCurrentBlackCard] = useState()
 
     // AUTO DEAL CARDS
     const [cardAmountInHand, setCardAmountInHand] = useState([])
@@ -31,7 +32,11 @@ export default function GameRoom() {
     return (
         <section className="GameRoom">
             { startingHandDealt ? (
-                !showResults && <PickRandomBlackCard isCard={false} />
+                !showResults && 
+                    <PickRandomBlackCard 
+                        isCard={false}
+                        setCurrentBlackCard={setCurrentBlackCard}  
+                    />
             ) : (
                 <>
                     <h1>Are you ready for this?</h1>
@@ -42,7 +47,10 @@ export default function GameRoom() {
             )}
 
             { showResults ? (
-                <Results chosenWhiteCard={chosenWhiteCard} />
+                <Results 
+                    chosenWhiteCard={chosenWhiteCard} 
+                    currentBlackCard={currentBlackCard}
+                />
             ) : (
                 <PlayerHand 
                     cardAmountInHand={cardAmountInHand} 

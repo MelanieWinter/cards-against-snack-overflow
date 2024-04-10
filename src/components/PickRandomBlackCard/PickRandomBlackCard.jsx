@@ -3,7 +3,7 @@ import cahData from '../../../cah-cards.json';
 import Card from '../Card/Card'
 import './PickRandomBlackCard.css'
 
-export default function PickRandomBlackCard({ isCard }) {
+export default function PickRandomBlackCard({ isCard, setCurrentBlackCard }) {
     const [randomBlackCard, setRandomBlackCard] = useState(null);
 
     const packs = cahData;
@@ -19,6 +19,7 @@ export default function PickRandomBlackCard({ isCard }) {
             if (blackCards.length > 0) {
                 const randomBlackCard = blackCards[Math.floor(Math.random() * blackCards.length)];
                 setRandomBlackCard(randomBlackCard.text);
+                setCurrentBlackCard(randomBlackCard.text)
             } else {
                 setRandomBlackCard('No black cards available');
             }

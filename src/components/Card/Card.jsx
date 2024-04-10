@@ -39,3 +39,5 @@ export default function Card({ cardContent, color, handleShowResults, setChosenW
         </div>
     )
 } 
+
+// Make it so black card does not have hover animations!
