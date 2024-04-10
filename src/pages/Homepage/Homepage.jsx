@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 
 export default function Homepage() {
-    let navigate = useNavigate(); 
+    const navigate = useNavigate(); 
     const routeChange = () =>{ 
         let path = `/game-room`; 
         navigate(path);

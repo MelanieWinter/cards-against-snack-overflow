@@ -3,7 +3,7 @@ import cahData from '../../../cah-cards.json';
 import Card from '../Card/Card'
 import './PickRandomWhiteCard.css'
 
-export default function PickRandomWhiteCard() {
+export default function PickRandomWhiteCard({ handleShowResults, setChosenWhiteCard }) {
     const [randomWhiteCard, setRandomWhiteCard] = useState(null);
 
     const packs = cahData;
@@ -32,7 +32,12 @@ export default function PickRandomWhiteCard() {
             {/* <button onClick={handleGetWhiteCard}>
                 Pick a random white card
             </button> */}
-            <Card cardContent={randomWhiteCard} color={'white'} />
+            <Card 
+                cardContent={randomWhiteCard} 
+                color={'white'} 
+                handleShowResults={handleShowResults} 
+                setChosenWhiteCard={setChosenWhiteCard}
+            />
         </div>
     )
 }

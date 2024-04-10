@@ -1,5 +1,5 @@
 import './Card.css'
-export default function Card({ cardContent, color }) {
+export default function Card({ cardContent, color, handleShowResults, setChosenWhiteCard }) {
 
     const handleOnMouseMove = e => {
         const { currentTarget: target } = e
@@ -18,8 +18,13 @@ export default function Card({ cardContent, color }) {
         card.onmousemove = e => handleOnMouseMove(e)
     }
 
+    function handleResults() {
+        setChosenWhiteCard(cardContent)
+        handleShowResults()
+    }
+
     return (
-        <div className='Card'>
+        <div className='Card' onClick={handleResults}>
             <div className='card-border'></div>
             <div 
                 className='card-content'
