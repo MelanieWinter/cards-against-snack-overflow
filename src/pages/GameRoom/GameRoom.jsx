@@ -1,13 +1,16 @@
 import { useState } from 'react'
 import PlayerHand from '../../components/PlayerHand/PlayerHand'
+import PickRandomBlackCard from '../../components/PickRandomBlackCard/PickRandomBlackCard'
 import './GameRoom.css'
 
 export default function GameRoom() {
+    const [startingHandDealt, setStartingHandDealt] = useState(false)
 
     // AUTO DEAL CARDS
     const [cardAmountInHand, setCardAmountInHand] = useState([])
     function dealStartingHand() {
         setCardAmountInHand(10)
+        setStartingHandDealt(true)
     }
 
     // MANUALLY DEAL CARDS
@@ -20,10 +23,16 @@ export default function GameRoom() {
 
     return (
         <section className="GameRoom">
-            <h1>Are you ready for this?</h1>
-            <button onClick={dealStartingHand}>
-                Deal Starting Hand
-            </button>
+            { startingHandDealt ?
+                <PickRandomBlackCard isCard={false} /> : 
+                <h1>Are you ready for this?</h1>
+            }
+
+            { !startingHandDealt && 
+                <button onClick={dealStartingHand}>
+                    Deal Starting Hand
+                </button>
+            }
             <PlayerHand cardAmountInHand={cardAmountInHand} />
         </section>
     )
