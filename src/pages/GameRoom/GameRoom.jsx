@@ -3,19 +3,26 @@ import PlayerHand from '../../components/PlayerHand/PlayerHand'
 import './GameRoom.css'
 
 export default function GameRoom() {
-    const [cardAmountInHand, setCardAmountInHand] = useState(0)
-    let handAmount = 1;
 
+    // AUTO DEAL CARDS
+    const [cardAmountInHand, setCardAmountInHand] = useState([])
     function dealStartingHand() {
-        setCardAmountInHand(prevAmount => prevAmount + handAmount)
-        handAmount++
+        setCardAmountInHand(10)
     }
+
+    // MANUALLY DEAL CARDS
+    // const [cardAmountInHand, setCardAmountInHand] = useState(0)
+    // let handAmount = 1
+    // function dealStartingHand() {
+    //     setCardAmountInHand(prevAmount => prevAmount + handAmount)
+    //     handAmount++
+    // }
 
     return (
         <section className="GameRoom">
             <h1>Are you ready for this?</h1>
             <button onClick={dealStartingHand}>
-                Deal Cards
+                Deal Starting Hand
             </button>
             <PlayerHand cardAmountInHand={cardAmountInHand} />
         </section>
