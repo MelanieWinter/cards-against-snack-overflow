@@ -1,5 +1,5 @@
 import './Card.css'
-export default function Card() {
+export default function Card({ cardContent, color }) {
 
     const handleOnMouseMove = e => {
         const { currentTarget: target } = e
@@ -21,8 +21,16 @@ export default function Card() {
     return (
         <div className='Card'>
             <div className='card-border'></div>
-            <div className='card-content'></div>
-            {/* <span>Card Front</span> */}
+            <div 
+                className='card-content'
+                style={{
+                    backgroundColor: color === 'white' ? 'rgb(71, 71, 71)' : 'rgb(23, 23, 23)'
+                }}
+            >
+                <div className='card-content-text'>
+                    {cardContent}
+                </div>
+            </div>
         </div>
     )
 } 
