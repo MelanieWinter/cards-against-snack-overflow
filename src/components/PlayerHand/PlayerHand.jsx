@@ -1,32 +1,14 @@
 import { useEffect, useState } from 'react'
-import PickRandomWhiteCard from '../../components/PickRandomWhiteCard/PickRandomWhiteCard';
+import Card from '../../components/Card/Card';
+import * as cardUtils from '../../utilities/cardUtils'
 import './PlayerHand.css'
 
-export default function PlayerHand({ cardAmountInHand, handleShowResults, setChosenWhiteCard }) {
-    const [currentHand, setCurrentHand] = useState([])
-
-    useEffect(() => {
-        function dealCards(dealNumber) {
-            const cards = [];
-            for (let i = 0; i < dealNumber; i++) {
-                cards.push(
-                    <PickRandomWhiteCard 
-                        key={i} 
-                        handleShowResults={handleShowResults} 
-                        setChosenWhiteCard={setChosenWhiteCard}
-                    />
-                )
-            }
-            setCurrentHand(cards);
-        }
-        dealCards(cardAmountInHand)
-        
-    }, [cardAmountInHand]);
+export default function PlayerHand({ cardAmountInHand, handleShowResults, setChosenWhiteCard, currentHand }) {
 
     return (
         <div className='PlayerHand'>
             {currentHand.map((card, index) => (
-                card
+                <Card key={index} cardContent={card} />
             ))}
         </div>
     )

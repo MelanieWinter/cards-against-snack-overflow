@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import PlayerHand from '../../components/PlayerHand/PlayerHand'
 import PickRandomBlackCard from '../../components/PickRandomBlackCard/PickRandomBlackCard'
 import Results from '../../components/Results/Results'
@@ -10,21 +10,19 @@ export default function GameRoom() {
     const [showResults, setShowResults] = useState(false)
     const [chosenWhiteCard, setChosenWhiteCard] = useState()
     const [currentBlackCard, setCurrentBlackCard] = useState()
+    const [cardAmountInHand, setCardAmountInHand] = useState()
+    const [currentHand, setCurrentHand] = useState([])
 
-    // AUTO DEAL CARDS
-    const [cardAmountInHand, setCardAmountInHand] = useState([])
+    let cardsInHand
+
     function dealStartingHand() {
-        setCardAmountInHand(cardUtils.setHandAmount)
-        setStartingHandDealt(true)
+        if (startingHandDealt === false) {
+            cardsInHand = cardUtils.cardDealer()
+            setCurrentHand(cardsInHand)
+            setStartingHandDealt(true)
+        }
+        // Make a 'catch'/'else' block
     }
-
-    // MANUALLY DEAL CARDS
-    // const [cardAmountInHand, setCardAmountInHand] = useState(0)
-    // let handAmount = 1
-    // function dealStartingHand() {
-    //     setCardAmountInHand(prevAmount => prevAmount + handAmount)
-    //     handAmount++
-    // }
 
     function handleShowResults() {
         setShowResults(true)
@@ -34,10 +32,18 @@ export default function GameRoom() {
         <section className="GameRoom">
             { startingHandDealt ? (
                 !showResults && 
+                <>
                     <PickRandomBlackCard 
                         isCard={false}
                         setCurrentBlackCard={setCurrentBlackCard}  
                     />
+                    <PlayerHand 
+                        cardAmountInHand={cardAmountInHand} 
+                        handleShowResults={handleShowResults}
+                        setChosenWhiteCard={setChosenWhiteCard} 
+                        currentHand={currentHand}
+                    />
+                </>
             ) : (
                 <>
                     <h1>Are you ready for this?</h1>
@@ -47,7 +53,7 @@ export default function GameRoom() {
                 </>
             )}
 
-            { showResults ? (
+            {/* { showResults ? (
                 <Results 
                     chosenWhiteCard={chosenWhiteCard} 
                     currentBlackCard={currentBlackCard}
@@ -58,7 +64,7 @@ export default function GameRoom() {
                     handleShowResults={handleShowResults}
                     setChosenWhiteCard={setChosenWhiteCard} 
                 />
-            )} 
+            )}  */}
         </section>
     )
 }

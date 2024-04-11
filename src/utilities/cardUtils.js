@@ -1,11 +1,13 @@
 import cahData from '../../cah-cards.json'
 
 const packs = cahData
-let cardsInHand = []
+
 let availableWhiteCards = []
 let randomWhiteCard
-let setHandAmount = 10
+let setHandAmount = 10 /* THIS SHOULD BE IN A GAME MODEL PLAYER HAND MODEL OR SOMETHING */
 let cardsNeededInHand = 10
+
+// need function to set amount in hand to change and cards needed to be the difference of cards in hand and 10
 
 function getWhiteCards() {
     for (const pack of packs) {
@@ -28,11 +30,14 @@ export function pickRandomWhiteCard() {
 // console.log('RANDOM WHITE CARD -->', randomWhiteCard)
 
 export function cardDealer() {
+    let cardsInHand = []
+
     while (cardsNeededInHand > 0) {
         pickRandomWhiteCard()
         cardsInHand.push(randomWhiteCard)
         cardsNeededInHand--
     }
+    return cardsInHand
 }
 // cardDealer()
 // console.log('CARDS IN HAND -->', cardsInHand)
