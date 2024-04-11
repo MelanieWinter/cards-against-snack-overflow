@@ -2,6 +2,7 @@ import { useState } from 'react'
 import PlayerHand from '../../components/PlayerHand/PlayerHand'
 import PickRandomBlackCard from '../../components/PickRandomBlackCard/PickRandomBlackCard'
 import Results from '../../components/Results/Results'
+import * as cardUtils from '../../utilities/cardUtils'
 import './GameRoom.css'
 
 export default function GameRoom() {
@@ -13,7 +14,7 @@ export default function GameRoom() {
     // AUTO DEAL CARDS
     const [cardAmountInHand, setCardAmountInHand] = useState([])
     function dealStartingHand() {
-        setCardAmountInHand(10)
+        setCardAmountInHand(cardUtils.setHandAmount)
         setStartingHandDealt(true)
     }
 
@@ -57,7 +58,7 @@ export default function GameRoom() {
                     handleShowResults={handleShowResults}
                     setChosenWhiteCard={setChosenWhiteCard} 
                 />
-            )}
+            )} 
         </section>
     )
 }

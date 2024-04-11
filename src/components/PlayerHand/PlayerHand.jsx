@@ -20,11 +20,14 @@ export default function PlayerHand({ cardAmountInHand, handleShowResults, setCho
             setCurrentHand(cards);
         }
         dealCards(cardAmountInHand)
+        
     }, [cardAmountInHand]);
 
     return (
         <div className='PlayerHand'>
-            {currentHand}
+            {currentHand.map((card, index) => (
+                card
+            ))}
         </div>
     )
 }

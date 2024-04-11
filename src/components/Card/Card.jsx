@@ -21,6 +21,7 @@ export default function Card({ cardContent, color, handleShowResults, setChosenW
     function handleResults() {
         setChosenWhiteCard(cardContent)
         handleShowResults()
+        // remove card from cards array in PlayerHand
     }
 
     return (
